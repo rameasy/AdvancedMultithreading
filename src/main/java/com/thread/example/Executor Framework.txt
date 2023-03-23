@@ -1,0 +1,19 @@
+Executor framework is an abstraction to manage multiple threads by ourselves.
+It decouples from the actual task from its the execution of the task. 
+
+As part this framework there are two main interfaces
+1. Executor
+	It contains execute() method through which we can execute only Runnables. 
+	This execute method returns void, therefore the is no return type
+
+2. ExecutorService  
+	It contains submit() method which can handle both Runnables & Callables. This method returns Future object. 
+	It extends Executor interface therefore has execute method.	
+	
+Executors.java
+	Its a utitlity class which contains may factory methods to create different types of ExecutorService objects.
+	1. SingleThreadExecutor
+	2. FixedThreadPoolExecutor
+	3. CachedThreadPoolExecutor
+	4. ScheduledExecutor
+	
