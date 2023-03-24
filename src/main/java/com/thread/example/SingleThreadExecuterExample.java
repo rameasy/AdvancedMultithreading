@@ -19,8 +19,8 @@ public class SingleThreadExecuterExample {
 		ExecutorService callableExecutor = Executors.newSingleThreadExecutor();
 		try {
 			for (int number = 0; number < 4; number++) {
-				Future<String> future = runnableExecutor.submit(new CallableTask("CallableTask " + number));
-				System.out.println(future.get(100, TimeUnit.SECONDS));
+				Future<String> future = callableExecutor.submit(new CallableTask("CallableTask " + number));
+				System.out.println(future.get(1000, TimeUnit.SECONDS));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

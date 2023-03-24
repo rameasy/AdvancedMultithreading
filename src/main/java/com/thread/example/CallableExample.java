@@ -35,10 +35,12 @@ public class CallableExample {
 		
 		System.out.println("Thread completed : " + completedThread);
 		
-		Callable<String> stringCallable = () -> {
-            Thread.sleep(1000);
-            return "Anonymous object";
-        };
+		Callable<String> stringCallable = new Callable<String>() {
+			public String call() throws Exception {
+			    Thread.sleep(1000);
+			    return "Anonymous object";
+			}
+		};
         Future<String> futureForAnonymousObject = executor.submit(stringCallable);
         System.out.println(futureForAnonymousObject.get());
 		executor.shutdown();

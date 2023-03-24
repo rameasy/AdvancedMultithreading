@@ -1,5 +1,7 @@
 package com.thread.example;
 
+import java.time.LocalDateTime;
+
 class RunnableTask implements Runnable {
 	private String name;
 
@@ -8,14 +10,11 @@ class RunnableTask implements Runnable {
 	}
 
 	public void run() {
-		System.out.println("Start executing " + name);
 		try {
+			System.out.println("Task [" + name + "] executed on : " + LocalDateTime.now().toString());
 			Thread.sleep(1000);
-			System.out.println("Executing " + name);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Finished execution " + name);
-		System.out.println();
 	}
 }
